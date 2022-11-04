@@ -5,6 +5,7 @@ import Login from './Login'
 import UserPage from './UserPage'
 import NavBar from './NavBar'
 import DrugData from './DrugData'
+import Community from './Community'
 import '../App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -49,16 +50,12 @@ function App() {
             <Route path='/users/:id' element={
               <UserPage />
             }/>
-            {<Route path='/drugdata' element={
+            <Route path='/drugdata' element={
               <DrugData />
             }/>
-            /* <Route path='/calendar' element={
-              <Calendar />
-            }/>
             <Route path='/community' element={
-              <CommunityPage />
+              <Community />
             }/> */
-          }
             </Routes>  
         </Router>
     </div>

@@ -3,15 +3,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
-  # def create
-  #   user = User.create!(user_params)
-  #   render json: user
-  # end
+  def create
+    @user = User.create!(user_params)
+    render json: @user
+  end
+
 
   private 
 
   def user_params 
-    params.permit(:username, :password, :email, :first_name, :last_name, :country, :zip_code)
+    params.require(:user).permit(:username, :password, :email, :first_name, :last_name, :country, :zip_code)
   end
 
   def respond_with(resource, _opts = {})

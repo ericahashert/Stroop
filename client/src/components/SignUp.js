@@ -6,26 +6,16 @@ function SignUp () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 //   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [first_name, setFirst_Name] = useState("");
+  const [last_name, setLast_Name] = useState("");
   const [country, setCountry] = useState("");
     //should the below be null? since the zipcode is a number, not a string?
-  const [code, setCode] = useState("");
+  const [zip_code, setZip_Code] = useState("");
   const [errors, setErrors] = useState([])
     const navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault();
-    const user = {
-        username,
-        email,
-        password,
-        // password_confirmation
-        fname,
-        lname,
-        country,
-        code
-    }
     setErrors([]);
     // setIsLoading(true);
     fetch("/signup", {
@@ -33,7 +23,18 @@ function SignUp () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify({
+        user: 
+          {
+            "username": username,
+            "email": email,
+            "password": password,
+            "first_name": first_name,
+            "last_name": last_name,
+            "country": country,
+            "zip_code": zip_code
+          }
+      })
     }).then((r) => {
     //   setIsLoading(false);
       if (r.ok) {
@@ -74,17 +75,17 @@ function SignUp () {
                         type="text" 
                         name="first_name"
                         id="first_name"
-                        value={fname}
-                        onChange={(e) => setFname(e.target.value)} />
+                        value={first_name}
+                        onChange={(e) => setFirst_Name(e.target.value)} />
                 <label>Last Name</label>
                     <input 
                         type="text" 
                         name="last_name" 
                         id="last_name"
-                        value={lname}
-                        onChange={(e) => setLname(e.target.value)}/>
+                        value={last_name}
+                        onChange={(e) => setLast_Name(e.target.value)}/>
                 <label>Country of Residence</label>
-                    <select>
+                    <select onChange={(e) => setCountry(e.target.value)}>
                         <option value="united states">United States</option>
                         <option value="canada">Canada</option>
                         <option value="italy">Italy</option>
@@ -95,8 +96,8 @@ function SignUp () {
                         type="number" 
                         name="postal_code" 
                         id="postal_code"
-                        value={code}
-                        onChange={(e) => setCode(e.target.value)}/>
+                        value={zip_code}
+                        onChange={(e) => setZip_Code(e.target.value)}/>
                 <button type="submit" value="Submit">Sign Up</button>
             </form>
             {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}

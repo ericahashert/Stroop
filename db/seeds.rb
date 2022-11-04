@@ -1,6 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
+require 'faker'
+
+puts "Seeding users..."
+user1 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user2 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user3 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user4 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user5 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user6 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user7 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user8 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user9 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user10 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user11 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user12 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user13 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user14 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user15 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user16 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user17 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user18 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user19 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user20 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user21 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user22 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user23 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user24 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user25 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user26 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user27 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user28 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user29 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user30 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user31 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user32 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user33 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user34 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user35 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user36 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user37 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user38 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user39 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+user40 = User.create!(username: Faker::Internet.user_name, password: "admins", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, zip_code: Faker::Address.postcode, country: "")
+puts "Done Seeding!"
+
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
