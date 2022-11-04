@@ -28,7 +28,7 @@ function SignUp () {
     }
     setErrors([]);
     // setIsLoading(true);
-    fetch("/users", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,8 +38,8 @@ function SignUp () {
     //   setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => navigate(`/users/${user.id}`));
-      } else {
-        r.json().then((json) => setErrors(Object.entries(json.errors)));
+      // } else {
+        // r.json().then((json) => setErrors(Object.entries(json.errors)));
       }
     });
   }

@@ -2,8 +2,7 @@ import NavBar from './NavBar'
 
 function Home () {
     return (
-        <div className="Home">
-            <NavBar />
+    <div className="Home">
     </div>
     )
 }

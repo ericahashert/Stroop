@@ -5,22 +5,22 @@ function UserPage(){
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
     
-    const params = useParams()
-    const {id} = params
-    useEffect(()=>{
-        fetch(`/users/${id}`)
-        .then(res => {
-            if(res.ok){
-                res.json().then(user => {
-                    setUser(user)
-                    setLoading(false)
-                })
-            }else {
-                res.json().then(data => setErrors(data.errors))
-            }
-        })
+    // const params = useParams()
+    // const {id} = params
+    // useEffect(()=>{
+    //     fetch(`/users/${id}`)
+    //     .then(res => {
+    //         if(res.ok){
+    //             res.json().then(user => {
+    //                 setUser(user)
+    //                 setLoading(false)
+    //             })
+    //         }else {
+    //             res.json().then(data => setErrors(data.errors))
+    //         }
+    //     })
        
-    },[])
+    // },[])
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>

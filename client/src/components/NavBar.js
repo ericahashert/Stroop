@@ -7,16 +7,27 @@ function NavBar ( {updateUser} ) {
 
   const handleLogOut = () => {
     // DELETE `/logout`
+    let token = localStorage.getItem('token')
     fetch('/logout',{
-      method:'DELETE'
+      method:'DELETE',
+      headers: {
+        Authorization: token
+      },
     })
-    .then(res => {
+    .then((res) => {
       if(res.ok){
+        localStorage.removeItem('token');
         updateUser(false)
-        navigate('/')
+        navigate('/login')
+        // navigate('/')
+      } else {
+        // const json = res.json();
+        // return Promise.reject(json);
       }
     })
   }
+
+  console.log(localStorage.getItem('token'))
 
     return (
       <header>
@@ -24,14 +35,14 @@ function NavBar ( {updateUser} ) {
             <nav className="navbar">
             <button onClick={handleLogOut}>Log Out</button>
                 <ul className="navbar-container">
-                  <Link className="nav-links" to="/substancedata">
-                    Substance Data
+                  <Link className="nav-links" to="/drugdata">
+                    Drug Data
                   </Link>
-                  <Link className="nav-links" to="/eventcalendar">
+                  <Link className="nav-links" to="/calendar">
                     Event Calendar
                   </Link>
-                  <Link className="nav-links" to="/blogs">
-                    Blogs
+                  <Link className="nav-links" to="/community">
+                    Community
                   </Link>
                 </ul>
             </nav>
@@ -39,14 +50,18 @@ function NavBar ( {updateUser} ) {
                 <img className="logo" alt="stroop_logo" src="https://cdn-icons-png.flaticon.com/512/1048/1048329.png"></img>
             </span> */}
             <span>
+              <a href="/">            
                 <h2 className="title_text">Stroop</h2>
-            </span>
+              </a>
+              </span>
             <p>Recovery starts with knowledge</p>
-            <ul>
-              <li><Link to='/users/new'>Sign Up</Link></li>
-              <li><Link to='/login'>Login</Link></li>
-              <li>Become a Partner!</li>
-            </ul>
+            <nav>
+              <ul>
+                {/* <li><a href="/users/new">Sign Up</a></li> */}
+                <Link to='/signup'> Sign Up</Link>
+                <Link to='/login'> Login</Link>
+              </ul>
+            </nav>
         </div>
       </header>
     );

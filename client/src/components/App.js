@@ -4,35 +4,43 @@ import SignUp from './SignUp'
 import Login from './Login'
 import UserPage from './UserPage'
 import NavBar from './NavBar'
+import DrugData from './DrugData'
+import '../App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState(null);
   const [currentUser, setCurrentUser] = useState(false)
 
-  useEffect(() => {
-    fetch('/authorized_user')
-    .then(res => {
-      if(res.ok){
-        res.json().then(user => {
-          updateUser(user)
-        })
+  const updateUser = (user) => setCurrentUser(user)
+
+  useEffect(()=> {
+    fetch("/current_user", {
+      headers: {
+        Authorization: localStorage.getItem("token")
       }
     })
-  },[])
-
-  const updateUser = (user) => setCurrentUser(user)
+    .then(r => {
+      if (r.ok){
+        console.log(r)
+        return r.json()
+      } else {
+        console.log(r)
+      }
+    })
+    .then(console.log)
+  }, [])
 
   return (
     <div className="app">  
       <Router>
       <NavBar updateUser={updateUser}/>
-      {!currentUser? <Login error={'please login'} updateUser={updateUser}/> : 
+      {/* {!currentUser? <Login error={'please login'} updateUser={updateUser}/> :  */}
         <Routes>
             <Route exact path="/" element={
                 <Home />
             }/>
-            <Route path='/users/new' element={
+            <Route path='/signup' element={
                 <SignUp />
             }/>
             <Route path='/login' element={
@@ -41,8 +49,17 @@ function App() {
             <Route path='/users/:id' element={
               <UserPage />
             }/>
+            {<Route path='/drugdata' element={
+              <DrugData />
+            }/>
+            /* <Route path='/calendar' element={
+              <Calendar />
+            }/>
+            <Route path='/community' element={
+              <CommunityPage />
+            }/> */
+          }
             </Routes>  
-            } 
         </Router>
     </div>
 )};
