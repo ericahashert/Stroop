@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get '/drugdata', to: 'drug_data#index'
+  get '/community', to: 'posts#index'
 end

@@ -49,12 +49,14 @@ function NavBar ( {updateUser} ) {
             {/* <span role="img">
                 <img className="logo" alt="stroop_logo" src="https://cdn-icons-png.flaticon.com/512/1048/1048329.png"></img>
             </span> */}
+            <div className="navbar_text">
             <span>
               <a href="/">            
                 <h2 className="title_text">Stroop</h2>
               </a>
               </span>
             <p>Recovery starts with knowledge</p>
+            </div>
             <nav>
               <ul>
                 {/* <li><a href="/users/new">Sign Up</a></li> */}

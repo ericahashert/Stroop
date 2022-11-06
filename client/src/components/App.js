@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Home from './Home'
 import SignUp from './SignUp'
 import Login from './Login'
-import UserPage from './UserPage'
 import NavBar from './NavBar'
 import DrugData from './DrugData'
 import Community from './Community'
@@ -11,9 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [currentUser, setCurrentUser] = useState(false)
-
-  const updateUser = (user) => setCurrentUser(user)
+  const [posts, setPosts] = useState([])
 
   useEffect(()=> {
     fetch("/current_user", {
@@ -32,6 +29,29 @@ function App() {
     .then(console.log)
   }, [])
 
+  useEffect(() => {
+    fetch("/posts").then((response) => {
+      if (response.ok) {
+        response.json().then((posts) => setPosts(posts));
+      }
+    });
+  }, []);
+
+  // const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
+  const deletePost = (id) => setPosts(posts => posts.filter(post => post.id !== id))
+  function updateUser() {
+    setUser({
+      ...user,
+          username: user.username,
+          email: user.email,
+          password: user.password,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          country: user.country,
+          zip_code: user.zip_code
+    })
+  }
+
   return (
     <div className="app">  
       <Router>
@@ -47,15 +67,15 @@ function App() {
             <Route path='/login' element={
                 <Login updateUser={updateUser}/>
             }/>
-            <Route path='/users/:id' element={
+            {/* <Route path='/users/:id' element={
               <UserPage />
-            }/>
+            }/> */}
             <Route path='/drugdata' element={
               <DrugData />
             }/>
             <Route path='/community' element={
-              <Community />
-            }/> */
+              <Community posts={posts} setPosts={setPosts}/>
+            }/> 
             </Routes>  
         </Router>
     </div>
