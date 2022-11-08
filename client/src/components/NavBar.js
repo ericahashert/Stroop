@@ -38,7 +38,7 @@ function NavBar ( {updateUser} ) {
                   <Link className="nav-links" to="/drugdata">
                     Drug Data
                   </Link>
-                  <Link className="nav-links" to="/calendar">
+                  <Link className="nav-links" to="/events">
                     Event Calendar
                   </Link>
                   <Link className="nav-links" to="/community">

@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   }
   get '/drugdata', to: 'drug_data#index'
   get '/community', to: 'posts#index'
+  post '/community', to: 'posts#create'
+  patch '/post/:id', to: 'posts#update'
+  delete '/community/:id', to: 'posts#destroy'
 end

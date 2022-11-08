@@ -5,6 +5,7 @@ import Login from './Login'
 import NavBar from './NavBar'
 import DrugData from './DrugData'
 import Community from './Community'
+import EventCalendar from './EventCalendar';
 import '../App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -38,7 +39,6 @@ function App() {
   }, []);
 
   // const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
-  const deletePost = (id) => setPosts(posts => posts.filter(post => post.id !== id))
   function updateUser() {
     setUser({
       ...user,
@@ -75,6 +75,9 @@ function App() {
             }/>
             <Route path='/community' element={
               <Community posts={posts} setPosts={setPosts}/>
+            }/> 
+             <Route path='/events' element={
+              <EventCalendar />
             }/> 
             </Routes>  
         </Router>

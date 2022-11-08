@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Feed from "./Feed"
+import PostForm from "./PostForm"
 
 function Community ( {posts, setPosts } ) {
-   
-  
-    const updatePost = (updatedPost) => setPosts(current => {
-            return current.map(post => {
-                 if(post.id === updatedPost.id){
-                   return updatedPost
-                 } else {
-                   return post
-                 }
-                })
-              })
 
   
     //   const postsCollection = posts.map((displayedPost) => {
@@ -25,6 +15,8 @@ function Community ( {posts, setPosts } ) {
         const newPostArray = [...posts, newPost]
         setPosts(newPostArray);
       }
+
+      const deletePost = (id) => setPosts(posts => posts.filter(post => post.id !== id))
   
     //   function handleDelete(id) {
     //     //DELETE to `/posts/${params.id}`
@@ -49,8 +41,8 @@ function Community ( {posts, setPosts } ) {
             {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override?  */}
           {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
           {/* <h1 /> */}
-          {/* <PostForm onAddPost={handleAddPost} /> */}
-          {(posts) ? <Feed posts={posts} /> : null}
+          <PostForm onAddPost={handleAddPost} />
+          {(posts) ? <Feed posts={posts} setPosts={setPosts} deletePost={deletePost}/> : null}
           {/* <ul className="user_posts">
             {/* {displayedPostsCollection} */}
           {/* </ul> */} 

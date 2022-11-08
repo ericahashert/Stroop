@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
 import Comments from './Comments'
+import PopUp from './PopUp'
 
-function Post ( {post} ) {
-    // const [comments, setComments] = useState([]);
+function Post ( { post, updatePost, duringPopUp, handleDelete } ) {
+    const [popUp, setPopUp] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    
     let commentsCollection;
     // useEffect(() => {
-        commentsCollection = post.comments.map((comment) => {
-            return <Comments key={comment.id} comment={comment}/>;
-        });
-        console.log(post.user)
+    commentsCollection = post.comments.map((comment) => {
+        // console.log(comment)
+        return <Comments key={comment.id} comment={comment}/>;
+    });
 
     // }, ([post]))
 
     return (
         <>
-            <div>
-                {/* <h4>@{post.users.username}</h4> */}
+        <div className="post_container">
+            <div className={"Post" + duringPopUp}>
                 <p>{post.post_content}</p>
             </div>
+            <button onClick={()=> setPopUp(true)} className={duringPopUp}>Edit Post</button>
+                {popUp && <PopUp post={post} setPopUp={setPopUp} updatePost={updatePost} setIsOpen={setIsOpen} open={isOpen}/>}
+            <button onClick = {() => handleDelete(post.id)}>Delete Post</button>
             <div>  
                 <h4>Comments</h4>
                 {commentsCollection}
             </div>
+        </div>
         </>
     )
 }

@@ -2,39 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calendar {
+  text-align: center;
 }
 
 .header {
@@ -50,4 +19,66 @@
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
+}
+
+.PopUp {
+  position: fixed;
+
+  left: 25%;
+  top: 30%;
+
+  width: 50%;
+
+  border: 1px solid #011627;
+  border-radius: 1em;
+  box-shadow: -2px 5px 5px #E71D36;
+
+  background-color: #FDFFFC;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #011627;
+}
+
+#blur-cover{   
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  display: none;
+}
+#pop-up{
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 15px;
+  position: absolute;
+}
+
+#close{
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  font-size: 40px;
+  transform: rotate(45deg);
+  right: 14px;
+  }
+
+  .during-popup{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+.post_container {
+  background: transparent;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: grey;
+  border-radius: 0.3rem;
 }
