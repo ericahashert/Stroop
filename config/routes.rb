@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  get '/drugdata', to: 'drug_data#index'
   get '/community', to: 'posts#index'
   post '/community', to: 'posts#create'
   patch '/post/:id', to: 'posts#update'

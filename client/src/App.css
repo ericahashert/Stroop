@@ -82,3 +82,10 @@
   border-color: grey;
   border-radius: 0.3rem;
 }
+
+.new_event_text {
+  text-align: center;
+}
+
+/* .react-datepicker-popper {
+} */

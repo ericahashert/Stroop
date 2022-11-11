@@ -67,10 +67,7 @@ function App() {
             <Route path='/login' element={
                 <Login updateUser={updateUser}/>
             }/>
-            {/* <Route path='/users/:id' element={
-              <UserPage />
-            }/> */}
-            <Route path='/drugdata' element={
+            <Route path='/substances' element={
               <DrugData />
             }/>
             <Route path='/community' element={

@@ -153,6 +153,13 @@ comment53 = Comment.create!(user_id: user29.id, post_id: post48.id, comment: Fak
 comment54 = Comment.create!(user_id: user28.id, post_id: post47.id, comment: Faker::Quote.yoda) 
 comment55 = Comment.create!(user_id: user27.id, post_id: post46.id, comment: Faker::Quote.yoda) 
 comment56 = Comment.create!(user_id: user26.id, post_id: post45.id, comment: Faker::Quote.yoda) 
+
+
+puts "Adding substances..."
+scrape = SubstanceSpider.new
+substances = scrape.get_table
+Substance.create_from_collection(substances)
+
 puts "Done seeding!"
 
 # Examples:

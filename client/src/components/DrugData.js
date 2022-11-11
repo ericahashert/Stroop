@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function DrugData () {
+    
+
     return (
-        <p>
+        <div className="drug_data">
+            <h1>Substance Information</h1>
+
+        </div>
             
-        </p>
     )
 }
 

@@ -35,7 +35,7 @@ function NavBar ( {updateUser} ) {
             <nav className="navbar">
             <button onClick={handleLogOut}>Log Out</button>
                 <ul className="navbar-container">
-                  <Link className="nav-links" to="/drugdata">
+                  <Link className="nav-links" to="/substances">
                     Drug Data
                   </Link>
                   <Link className="nav-links" to="/events">
