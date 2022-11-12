@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import stroopLogo from '../assets/stroopLogo.png'
 
 function NavBar ( {updateUser} ) {
 
@@ -30,43 +31,50 @@ function NavBar ( {updateUser} ) {
   console.log(localStorage.getItem('token'))
 
     return (
-      <header>
-        <div className="header">
-            <nav className="navbar">
-            <button onClick={handleLogOut}>Log Out</button>
-                <ul className="navbar-container">
-                  <Link className="nav-links" to="/substances">
-                    Drug Data
-                  </Link>
-                  <Link className="nav-links" to="/events">
-                    Event Calendar
-                  </Link>
-                  <Link className="nav-links" to="/community">
-                    Community
-                  </Link>
-                </ul>
-            </nav>
-            {/* <span role="img">
-                <img className="logo" alt="stroop_logo" src="https://cdn-icons-png.flaticon.com/512/1048/1048329.png"></img>
-            </span> */}
-            <div className="navbar_text">
-            <span>
-              <a href="/">            
-                <h2 className="title_text">Stroop</h2>
+        <nav className="navbar is-white">
+          <div className="navbar-brand">
+            <a className="navbar-item" id="logo_and_motto" href="/">
+              <img src={stroopLogo} width="112" height="28" />
+              <p className="is-size-7"> Recovery starts with knowledge</p>
+            </a>
+          </div>
+
+          <div id="navbarLinks" className="navbar-menu">
+            <div className="navbar-start">
+              <a className="navbar-item" href="/substances">
+                Drug Data
               </a>
-              </span>
-            <p>Recovery starts with knowledge</p>
+
+              <a className="navbar-item" href="/events">
+                Event Calendar              
+              </a>
+
+              <a className="navbar-item" href="/community">
+                Community              
+              </a>
             </div>
-            <nav>
-              <ul>
-                {/* <li><a href="/users/new">Sign Up</a></li> */}
-                <Link to='/signup'> Sign Up</Link>
-                <Link to='/login'> Login</Link>
-              </ul>
-            </nav>
-        </div>
-      </header>
-    );
-  }
+
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
+                  <a className="button is-info" href="/signup">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a className="button is-light" href="/login">
+                    Log in
+                  </a>
+                  <a className="button is-info" href="/signup">
+                    <strong>Become a Partner</strong>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+
+                // {<li><a href="/users/new">Sign Up</a></li> */}
+                // <button onClick={handleLogOut}>Log Out</button>
+)}
   
   export default NavBar;

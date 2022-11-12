@@ -157,7 +157,7 @@ comment56 = Comment.create!(user_id: user26.id, post_id: post45.id, comment: Fak
 
 puts "Adding substances..."
 scrape = SubstanceSpider.new
-substances = scrape.get_table
+substances = scrape.create_substance_hash
 Substance.create_from_collection(substances)
 
 puts "Done seeding!"

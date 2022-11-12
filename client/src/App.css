@@ -6,21 +6,6 @@
   text-align: center;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  margin:0;
-  padding: 0;
-}
-
-.navbar_text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 3rem;
-}
-
 .PopUp {
   position: fixed;
 
@@ -89,3 +74,25 @@
 
 /* .react-datepicker-popper {
 } */
+
+#logo_and_motto {
+  display: flex;
+  flex-direction: column;
+}
+
+#background_video {
+  object-fit: cover;
+  height: 30rem;
+  width: 100%;
+  /* width: 100vw;
+  height: 100vh; */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* .home-heading {
+  /* font-size: 30rem; */

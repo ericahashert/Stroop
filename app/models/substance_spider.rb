@@ -5,51 +5,31 @@ require 'open-uri'
 require_relative './substance.rb'
 
 class SubstanceSpider
-    def get_table
-        substances_list = []
-
+    def create_substance_hash
         nih_url = 'https://nida.nih.gov/research-topics/commonly-used-drugs-charts'
         html = open(nih_url)
         doc = Nokogiri::HTML(html)
 
+        substances = {}
+
         table = doc.css('.path-node').css('.dialog-off-canvas-main-canvas').css('.l-page-container').css('.content').css('.content-inner').css('.main').css('.main-wrapper').css('.layout-center-content').css('.content-river').css('#block-nida-vic-adaptive-system-main').css('.ckeditor-accordion')
 
-        substances_list << table
-    end
-
-    def print_data(substances_list)
-
-        substances_list.each do |drug|
-            name = drug.css("dt").children.text
-            forms = drug.css("dd > table:first-of-type").css("tr[2] > td:nth-child(2)").text
-            ways_taken = drug.css("dd > table:first-of-type").css("tr[2] > td:nth-child(3)").text
-            short_term_effects = drug.css("dd > table:nth-of-type(2)").css("tr[2] > td:nth-child(2)").text
-            long_term_effects = drug.css("dd > table:nth-of-type(2)").css("tr[3] > td:nth-child(2)").text
-            health_issues = drug.css("dd > table:nth-of-type(2)").css("tr[4] > td:nth-child(2)").text
-            combined_with_alcohol = drug.css("dd > table:nth-of-type(2)").css("tr[5] > td:nth-child(2)").text
-            description = drug.css("dd").css("p:first-of-type").text
-            commercial_name = drug.css("dd > table:first-of-type").css("tr[2] > td:first-child").text
-
-            # substance_info = {
-            #     name: name,
-            #     forms: forms,
-            #     ways_taken: ways_taken,
-            #     short_term_effects: short_term_effects,
-            #     long_term_effects: long_term_effects,
-            #     health_issues: health_issues,
-            #     combined_with_alcohol: combined_with_alcohol,
-            #     description: description,
-            #     commercial_name: commercial_name
-            # }
-
-            substances << substance_info
+        table.each do |drug|
+            substances = {
+            :name => drug.css("dt").children.text,
+            :forms => drug.css("dd > table:first-of-type").css("tr[2] > td:nth-child(2)").text,
+            :ways_taken => drug.css("dd > table:first-of-type").css("tr[2] > td:nth-child(3)").text,
+            :short_term_effects => drug.css("dd > table:nth-of-type(2)").css("tr[2] > td:nth-child(2)").text,
+            :long_term_effects => drug.css("dd > table:nth-of-type(2)").css("tr[3] > td:nth-child(2)").text,
+            :health_issues => drug.css("dd > table:nth-of-type(2)").css("tr[4] > td:nth-child(2)").text,
+            :combined_with_alcohol => drug.css("dd > table:nth-of-type(2)").css("tr[5] > td:nth-child(2)").text,
+            :description => drug.css("dd").css("p:first-of-type").text,
+            :commercial_name => drug.css("dd > table:first-of-type").css("tr[2] > td:first-child").text
+            }
         end
-
         substances
     end
 end
-
-SubstanceSpider.new.get_table
 
 
 
