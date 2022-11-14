@@ -6,6 +6,7 @@ import NavBar from './NavBar'
 import DrugData from './DrugData'
 import Community from './Community'
 import EventCalendar from './EventCalendar';
+import Footer from './Footer'
 import '../App.css';
 import 'bulma/css/bulma.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -79,6 +80,7 @@ function App() {
             }/> 
             </Routes>  
         </Router>
+        <Footer />
     </div>
 )};
 

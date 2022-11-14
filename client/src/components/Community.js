@@ -3,49 +3,21 @@ import Feed from "./Feed"
 import PostForm from "./PostForm"
 
 function Community ( {posts, setPosts } ) {
+  
+    function handleAddPost (newPost) {
+      const newPostArray = [...posts, newPost]
+      setPosts(newPostArray);
+    }
 
-  
-    //   const postsCollection = posts.map((displayedPost) => {
-    //     return (
-    //       <UserPosts key = {displayedPost.id} userPost = {displayedPost} handleDelete = {handleDelete} updatePost={updatePost}/>
-    //     )
-    //   })
-  
-      function handleAddPost (newPost) {
-        const newPostArray = [...posts, newPost]
-        setPosts(newPostArray);
-      }
-
-      const deletePost = (id) => setPosts(posts => posts.filter(post => post.id !== id))
-  
-    //   function handleDelete(id) {
-    //     //DELETE to `/posts/${params.id}`
-    //     fetch(`/posts/${id}`, {
-    //       method: "DELETE",
-    //       headers: { "Content-Type": "application/json" },
-    //     }).then((res) => {
-    //       if (res.ok) {
-    //         deletePost(id);
-    //         history.push("/");
-          // } else {
-          //   res
-          //     .json()
-          //     .then((data) =>
-          //       setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-          //     );
-          // }
+    const deletePost = (id) => setPosts(posts => posts.filter(post => post.id !== id))
 
     return (
         <>
         <div className="community">
-            {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override?  */}
-          {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
-          {/* <h1 /> */}
+          <h1 className="title ml-5 mt-5">Join the Conversation</h1>
+          <p className="ml-5 mb-4">Your voice is important and deserves to be heard. Share below - testimonials, encouraging stories, advice - whatever you feel would contribute to the conversation.</p>
           <PostForm onAddPost={handleAddPost} />
           {(posts) ? <Feed posts={posts} setPosts={setPosts} deletePost={deletePost}/> : null}
-          {/* <ul className="user_posts">
-            {/* {displayedPostsCollection} */}
-          {/* </ul> */} 
         </div>
       </>
     )

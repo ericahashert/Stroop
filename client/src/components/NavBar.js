@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import stroopLogo from '../assets/stroopLogo.png'
 
 function NavBar ( {updateUser} ) {
-
   const navigate=useNavigate()
 
   const handleLogOut = () => {

@@ -9,7 +9,8 @@ import {
 } from 'react-big-calendar'
 import * as dates from '../assets/dates';
 import events from '../assets/events';
-import DatePicker from 'react-datepicker'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
@@ -38,33 +39,50 @@ function EventCalendar({
       components: {
         timeSlotWrapper: ColoredDateCellWrapper,
       },
-      defaultDate: new Date(2022, 11, 1),
+      defaultDate: new Date(2022, 10, 1),
       max: dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours'),
       views: Object.keys(Views).map((k) => Views[k]),
     }),
     []
   )
 
+
   function handleAddEvent () {
      setAllEvents([...allEvents, newEvent])
   }
 
+
   return (
     <Fragment>
       <div className="height600" {...props} style={{height: 700}}>
-         <div className="new_event_text">
+         <div className="new_event_text has-text-centered">
             <h2>Add New Event</h2>
-            <input type="text" placeholder="Add Title" style={{width: "20%", marginRight: "10px"}} 
-               value={newEvent.title} onChange={(e) => setNewEvent({...newEvent, title: e.target.value})}
-            />
-            <DatePicker placeholderText="Start Date" style={{marginRight: "10px"}}
-               selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} popperPlacement="top-end"
-               />
-            <DatePicker placeholderText="End Date" popperPlacement="top-end"
-               selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})} />
-            <button style={{marginTop: "10px"}} onClick={handleAddEvent}>Add Event</button>
+            <form className="ml-4 mr-4">
+               <div className="field">
+                  <div className="control">
+                     <input type="text" placeholder="Add Title" className="input" style={{width: "20%", marginRight: "10px"}} 
+                     value={newEvent.title} onChange={(e) => setNewEvent({...newEvent, title: e.target.value})}
+                     />
+                  </div>
+               </div>
+               <div className="field">
+                  <div className="control">
+                     <DatePicker placeholderText="Start Date" style={{marginRight: "10px"}} className="input" selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} 
+                     />
+                  </div>
+               </div>
+               <div className="field">
+                  <div className="control">
+                     <DatePicker placeholderText="End Date" className="input"
+                     selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})} 
+                     />
+                  </div>
+               </div>
+            <button className="button" style={{marginTop: "10px"}} onClick={handleAddEvent}>Add Event</button>
+            </form>
             </div>
         <Calendar
+          className="ml-4 mr-4 pb-4"
           components={components}
           defaultDate={defaultDate}
           events={allEvents}

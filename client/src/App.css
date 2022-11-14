@@ -1,80 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.calendar {
-  text-align: center;
-}
-
-.PopUp {
-  position: fixed;
-
-  left: 25%;
-  top: 30%;
-
-  width: 50%;
-
-  border: 1px solid #011627;
-  border-radius: 1em;
-  box-shadow: -2px 5px 5px #E71D36;
-
-  background-color: #FDFFFC;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  color: #011627;
-}
-
-#blur-cover{   
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: fixed;
-  top: 0;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  display: none;
-}
-#pop-up{
-  width: 500px;
-  height: 300px;
-  background-color: white;
-  border-radius: 15px;
-  position: absolute;
-}
-
-#close{
-  position: absolute;
-  top: 0;
-  cursor: pointer;
-  font-size: 40px;
-  transform: rotate(45deg);
-  right: 14px;
-  }
-
-  .during-popup{
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-}
-
-.post_container {
-  background: transparent;
-  border-style: solid;
-  border-width: 2px 2px 2px 2px;
-  border-color: grey;
-  border-radius: 0.3rem;
-}
-
-.new_event_text {
-  text-align: center;
-}
-
-/* .react-datepicker-popper {
-} */
-
 #logo_and_motto {
   display: flex;
   flex-direction: column;
@@ -96,3 +19,18 @@
 
 /* .home-heading {
   /* font-size: 30rem; */
+
+.searchForm {
+  margin-top: 3rem;
+  width: 20rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+

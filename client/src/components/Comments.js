@@ -10,6 +10,7 @@ function Comments ({ comment }) {
     <>
       <div className="comments">
         <i>{comment.comment}</i>
+        <p>{comment.user}</p>
         </div> 
     </>
   );

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// import '../css/PopUp.css';
-// import { useParams } from 'react-router-dom';
 
-function PopUp ( {post, setPopUp, updatePost, setIsOpen} ) {
+function Modal ( {post, updatePost, setModal, isActive } ) {
     const [postContent, setPostContent] = useState(post.post_content)
 
     // const PopUp = props => {
@@ -27,7 +25,7 @@ function PopUp ( {post, setPopUp, updatePost, setIsOpen} ) {
                 // setIsLoading(false);
                 if (r.ok) {
                     r.json().then((userData) => updatePost(userData));
-                    setPopUp(false);
+                    setModal(false)
                 }
                 //   } else {
                 //     r.json().then((err) => setErrors(err.errors));
@@ -37,23 +35,22 @@ function PopUp ( {post, setPopUp, updatePost, setIsOpen} ) {
 
 
     return (
-        <div className="PopUp">
-            <button className="popup-x" onClick={()=> setPopUp(false)} >X</button>
-            <div className="pu-content-container">
-                <div>
-                    <form onSubmit={handleSubmit}>
-                        <p>
-                            <label>Post</label>
-                                <input
-                                    type="text"
-                                    name="post"
-                                    value={postContent}
-                                    placeholder={post.post_content}
-                                    onChange={(e) => setPostContent(e.target.value)}
-                                    />
-                        </p>
-                                <input type="submit" value="Submit" />
-                    </form>
+        <div className="modal">
+            <div className="modal-background">
+                <div className="modal-content has-background-white py-5 px-5">
+                            <form onSubmit={handleSubmit}>
+                                <p>
+                                    <label>Post</label>
+                                        <input
+                                            type="text"
+                                            name="post"
+                                            value={postContent}
+                                            placeholder={post.post_content}
+                                            onChange={(e) => setPostContent(e.target.value)}
+                                        />
+                                </p>
+                                        <input type="submit" value="Submit" />
+                            </form>
                         {/* {errors */}
                             {/* ? errors.map((e) => ( */}
                             {/* <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2> */}
@@ -63,4 +60,4 @@ function PopUp ( {post, setPopUp, updatePost, setIsOpen} ) {
             </div>
         </div>
     )}
-export default PopUp;
+export default Modal;

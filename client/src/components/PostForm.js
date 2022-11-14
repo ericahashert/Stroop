@@ -30,19 +30,24 @@ export default function PostForm({ onAddPost }) {
 
   return (
     <>
-      <div>
+      <div className="has-text-centered ml-5 mr-5 mb-4">
         {/* {errors ? errors.map((e) => <div>{e}</div>) : null} */}
         <form onSubmit={handleSubmit}>
-          <p>
-            <label>Post</label>
-              <input
-                type="text"
-                name="post"
-                value={postContent}
-                onChange={(e) => setPostContent(e.target.value)}
-              />
-          </p>
-          <input type="submit" value="Submit" />
+          <div className="field">
+              <div className="control">
+                <input
+                  className="input is-rounded"
+                  placeholder="What's on your mind?"
+                  type="text"
+                  name="post"
+                  value={postContent}
+                  onChange={(e) => setPostContent(e.target.value)}
+                />
+              </div>
+            </div>
+            {/* <div className = "has-text-centered">
+              <button className="button" type="submit">Submit</button>
+            </div> */}
         </form>
         {/* {errors */}
           {/* ? errors.map((e) => ( */}
