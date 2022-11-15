@@ -5,7 +5,6 @@ function Comments ({ comment }) {
   // const [errors, setErrors] = useState(false);
   // const params = useParams();
   // const history = useHistory();
-//   console.log(comment)
   return (
     <>
       <div className="comments">

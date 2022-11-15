@@ -156,13 +156,11 @@ comment56 = Comment.create!(user_id: user26.id, post_id: post45.id, comment: Fak
 
 
 puts "Adding substances..."
-scrape = SubstanceSpider.new
-substances = scrape.create_substance_hash
-Substance.create_from_collection(substances)
-
+spider = SubstanceSpider.new
+substances = spider.create_substance_hash
+# substances = scrape.create_substance_hash
+# Substance.create_from_collection(substances)
+substances.each do |drug|
+    Substance.create(drug)
+end
 puts "Done seeding!"
-
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)

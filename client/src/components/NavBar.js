@@ -17,9 +17,8 @@ function NavBar ( {updateUser} ) {
     .then((res) => {
       if(res.ok){
         localStorage.removeItem('token');
-        updateUser(false)
-        navigate('/login')
-        // navigate('/')
+        updateUser({})
+        navigate('/')
       } else {
         // const json = res.json();
         // return Promise.reject(json);
@@ -56,13 +55,13 @@ function NavBar ( {updateUser} ) {
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <a className="button is-info" href="/signup">
+                  <a className="button is-link" href="/signup">
                     <strong>Sign up</strong>
                   </a>
                   <a className="button is-light" href="/login">
                     Log in
                   </a>
-                  <a className="button is-info" href="/signup">
+                  <a className="button is-link" href="/signup">
                     <strong>Become a Partner</strong>
                   </a>
                 </div>

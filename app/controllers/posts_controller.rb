@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :ensure_current_user, only: [:update, :destroy]
+    # before_action :ensure_current_user, only: [:update, :destroy]
 
     def index
         render json: Post.all.order(created_at: :desc), status: :ok

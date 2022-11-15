@@ -6,13 +6,13 @@ import NavBar from './NavBar'
 import DrugData from './DrugData'
 import Community from './Community'
 import EventCalendar from './EventCalendar';
-import Footer from './Footer'
+// import Footer from './Footer'
 import '../App.css';
 import 'bulma/css/bulma.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [posts, setPosts] = useState([])
 
   useEffect(()=> {
@@ -24,9 +24,10 @@ function App() {
     .then(r => {
       if (r.ok){
         console.log(r)
+        setUser(r)
         return r.json()
       } else {
-        console.log(r)
+        console.log("Not signed in")
       }
     })
     .then(console.log)
@@ -39,6 +40,7 @@ function App() {
       }
     });
   }, []);
+
 
   // const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
   function updateUser() {
@@ -53,6 +55,8 @@ function App() {
           zip_code: user.zip_code
     })
   }
+
+  console.log(user.username)
 
   return (
     <div className="app">  
@@ -80,7 +84,6 @@ function App() {
             }/> 
             </Routes>  
         </Router>
-        <Footer />
     </div>
 )};
 

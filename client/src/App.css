@@ -34,3 +34,45 @@
   z-index: 9999 !important;
 }
 
+.login_card {
+  display: block;
+  justify-content: center;
+  height: 33rem;
+  margin: 0;
+  position: fixed;
+  top: 20%
+}
+
+.login {
+  min-height: 100vh;
+  background-image: url(./assets/bisonPic.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.signup {
+  min-height: 100vh;
+  background-image: url(./assets/beach.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;  
+  overflow: clip;
+}
+
+.signup_card {
+  display: block;
+  justify-content: center;
+  height: 33rem;
+  position: fixed;
+  top: 20%;
+}
+
+.name_inputs {
+  /* width: 11rem; */
+}
+
+
+
+
+

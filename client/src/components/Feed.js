@@ -27,7 +27,7 @@ function Feed ( {posts, comments, setPosts, deletePost} ) {
             }})} 
 
     const postsCollection = posts.map((post) => {
-        return <Post post={post} comments={comments} updatePost={updatePost} duringModal = {duringModal} handleDelete={handleDelete}/>;
+        return <Post key={post.id} post={post} comments={comments} updatePost={updatePost} duringModal = {duringModal} handleDelete={handleDelete}/>;
     });
 
   return (

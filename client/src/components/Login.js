@@ -29,6 +29,7 @@ function Login ( {updateUser} ) {
           console.log(res)
             localStorage.setItem("token", res.headers.get("Authorization"))
             updateUser(res)
+            navigate("/")
             return res.json();
           } else {
             throw new Error(res)
@@ -40,37 +41,45 @@ function Login ( {updateUser} ) {
         })}
   
       return (
-          <div className="login">
-              <h1 className="title ml-4">Sign in for full access</h1>
+      <div className="login">
+      <div className="columns is-centered is-8 is-variable">
+        <div className="column is-5-tablet is-4-desktop">
+          <div className="card login_card">
+            <div className="card-content"></div>
+              <h1 className="title has-text-centered ml-4">Sign in for full access</h1>
               <form onSubmit={handleSubmit} className="ml-4 mr-4">
                 <div className="field">
-                  <label className="label">Email</label>
-                    <div className="control">
+                  <div className="control">
                       <input 
                           type="text" 
-                          className="input"
+                          className="input mt-6"
                           name="email" 
                           id="email"
+                          placeholder="Email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                 </div>
                 <div className="field">
-                  <label className="label">Password</label>
                     <div className="control">
                       <input 
                           type="password" 
-                          className="input"
+                          className="input mt-5"
                           name="password" 
                           id="password"
+                          placeholder="Password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                 </div>
-                <button className="button" type="submit" value="Submit">Log In</button>
+                <button className="is-fullwidth is-link button mt-5" type="submit" value="Submit">Log In</button>
               </form>
+              <p className="login_text is-size-6 has-text-centered">New to Stroop? <a href="/signup">Sign up</a> for free</p>
               {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+            </div>
           </div>
+        </div>
+      </div>
       )
   }
   

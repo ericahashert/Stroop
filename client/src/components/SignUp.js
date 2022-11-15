@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import beach from '../assets/beach.jpg'
 
 function SignUp () {
   const [username, setUsername] = useState("");
@@ -38,7 +39,7 @@ function SignUp () {
     }).then((r) => {
     //   setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => navigate(`/users/${user.id}`));
+        r.json().then((user) => navigate(`/`));
       // } else {
         // r.json().then((json) => setErrors(Object.entries(json.errors)));
       }
@@ -46,15 +47,19 @@ function SignUp () {
   }
 
     return (
-        <div className="signup">
-            <h1 className="title ml-4">Create an account</h1>
+      <div className="signup">
+        <div className="columns is-centered is-8 is-variable">
+          <div className="column is-5-tablet is-4-desktop">
+            <div className="card signup_card">
+              <div className="card-content"></div>
+                <h1 className="title has-text-centered ml-4">Create an account</h1>
             <form onSubmit={handleSubmit} className="ml-4 mr-4">
               <div className="field">
-                <label className="label">Username</label>
                   <div className="control">
                     <input 
                         type="text" 
-                        className="input"
+                        className="input mt-4"
+                        placeholder="Username"
                         name="username" 
                         id="username"
                         value={username}
@@ -62,11 +67,11 @@ function SignUp () {
                   </div>
               </div>
               <div className="field">
-                <label className="label">Password</label>
                   <div className="control">
                     <input 
                         type="password" 
-                        className="input"
+                        className="input mt-2"
+                        placeholder="Password"
                         name="password" 
                         id="password"
                         value={password}
@@ -74,46 +79,43 @@ function SignUp () {
                   </div>
               </div>
               <div className="field"> 
-                <label className="label">Email</label>
                   <div className="control">
                     <input 
                         type="email" 
-                        className="input"
+                        className="input mt-2"
+                        placeholder="Email"
                         name="email" 
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                   </div>
               </div>
-              <div className="field">
-                <label className="label">First Name</label>
+              <div className="field is-grouped">
                   <div className="control">
                     <input 
                         type="text" 
-                        className="input"
+                        className="input mt-2"
+                        placeholder="First Name"
                         name="first_name"
                         id="first_name"
                         value={first_name}
                         onChange={(e) => setFirst_Name(e.target.value)} />
-                  </div>
-              </div>
-              <div className="field">
-                <label className="label">Last Name</label>
+                    </div>
                   <div className="control">
                     <input 
                         type="text" 
-                        className="input"
+                        className="input mt-2"
+                        placeholder="Last Name"
                         name="last_name" 
                         id="last_name"
                         value={last_name}
                         onChange={(e) => setLast_Name(e.target.value)}/>
                   </div>
               </div>
-              <div className="field">
-                <label className="label">Country of Residence</label>
+              <div className="field is-grouped">
                   <div className="control">
                     <div className="select is-dark">
-                      <select onChange={(e) => setCountry(e.target.value)}>
+                      <select className="mt-2" onChange={(e) => setCountry(e.target.value)}>
                         <option value="united states">United States</option>
                         <option value="canada">Canada</option>
                         <option value="italy">Italy</option>
@@ -121,25 +123,26 @@ function SignUp () {
                       </select> 
                     </div>
                   </div>
-              </div>
-              <div className="field">
-                <label className="label">Postal Code</label>
-                  <div className="control">
+                  <div className="control is-expanded">
                     <input 
                         type="number" 
-                        className="input"
+                        className="input mt-2"
+                        placeholder="Zip/postal Code"
                         name="postal_code" 
                         id="postal_code"
                         value={zip_code}
                         onChange={(e) => setZip_Code(e.target.value)}/>
+                    </div>
                   </div>
-              </div>
-                <button className="button" type="submit" value="Submit">Sign Up</button>
+                <button className="is-fullwidth is-link button mt-5" type="submit" value="Submit">Sign Up</button>
             </form>
+            <p className="login_text is-size-6 has-text-centered">Already have an account? <a href="/login">Sign in</a></p>
             {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </div>
-    )
-
+      </div>
+    </div>
+  </div>
+  )
 }
 
 export default SignUp; 

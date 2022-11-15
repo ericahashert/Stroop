@@ -12,6 +12,7 @@ import events from '../assets/events';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { RRule, RRuleSet, rrulestr } from 'rrule'
 
 
 const mLocalizer = momentLocalizer(moment)
@@ -45,6 +46,16 @@ function EventCalendar({
     }),
     []
   )
+
+  const rule = new RRule({
+    freq: RRule.WEEKLY,
+    byweekday: [RRule.MO, RRule.FR],
+    dtstart: new Date(2022, 9, 30, 9, 0, 0),
+    until: new Date(2023, 3, 30, 9, 0, 0)
+  })
+
+  // rule.all(events)
+
 
 
   function handleAddEvent () {

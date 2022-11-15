@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_002313) do
 
   create_table "substances", force: :cascade do |t|
     t.string "name"
-    t.string "forms"
+    t.string "types"
     t.string "ways_taken"
     t.string "short_term_effects"
     t.string "long_term_effects"

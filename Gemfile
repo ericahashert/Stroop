@@ -42,6 +42,10 @@ gem "kimurai"
 
 gem "nokogiri"
 
+gem 'rrule'
+
+gem "net-http"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
