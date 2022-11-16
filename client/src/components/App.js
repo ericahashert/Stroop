@@ -56,12 +56,10 @@ function App() {
     })
   }
 
-  console.log(user.username)
-
   return (
     <div className="app">  
       <Router>
-      <NavBar updateUser={updateUser}/>
+      <NavBar updateUser={updateUser} user={user}/>
       {/* {!currentUser? <Login error={'please login'} updateUser={updateUser}/> :  */}
         <Routes>
             <Route exact path="/" element={

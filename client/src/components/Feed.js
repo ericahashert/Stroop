@@ -4,8 +4,6 @@ import Post from "./Post";
 function Feed ( {posts, comments, setPosts, deletePost} ) {
   const [modal, setModal] = useState(false)
 
-  const duringModal = modal ? "is-active" : ""
-
     const updatePost = (updatedPost) => setPosts((posts) => {
         return posts.map(post => {
              if(post.id === updatedPost.id){
@@ -27,7 +25,7 @@ function Feed ( {posts, comments, setPosts, deletePost} ) {
             }})} 
 
     const postsCollection = posts.map((post) => {
-        return <Post key={post.id} post={post} comments={comments} updatePost={updatePost} duringModal = {duringModal} handleDelete={handleDelete}/>;
+        return <Post key={post.id} post={post} comments={comments} updatePost={updatePost} handleDelete={handleDelete}/>;
     });
 
   return (

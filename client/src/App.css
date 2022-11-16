@@ -68,8 +68,13 @@
   top: 20%;
 }
 
-.name_inputs {
-  /* width: 11rem; */
+.searchbar {
+  width: 23rem;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
 }
 
 

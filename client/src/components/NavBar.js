@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import stroopLogo from '../assets/stroopLogo.png'
 
-function NavBar ( {updateUser} ) {
+function NavBar ( {updateUser, user} ) {
   const navigate=useNavigate()
 
   const handleLogOut = () => {
@@ -58,9 +58,14 @@ function NavBar ( {updateUser} ) {
                   <a className="button is-link" href="/signup">
                     <strong>Sign up</strong>
                   </a>
+                  {user.hasOwnProperty('email') ? 
+                  <a className="button is-light" onClick={handleLogOut}>Log out</a> : 
                   <a className="button is-light" href="/login">
                     Log in
-                  </a>
+                  </a>}
+                  {/* <a className="button is-light" href="/logout">
+                    Log out
+                  </a> */}
                   <a className="button is-link" href="/signup">
                     <strong>Become a Partner</strong>
                   </a>
